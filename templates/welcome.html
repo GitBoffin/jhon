@@ -1,21 +1,82 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <link rel="stylesheet" href="../static/styles.css">
+    <title>Welcome to the Mini-App</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Centered container for the welcome screen */
+        .welcome-container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        /* Header styling */
+        h1 {
+            font-size: 24px;
+            color: #3c3c3c;
+            margin-bottom: 15px;
+        }
+
+        /* Paragraph styling */
+        p {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 30px;
+        }
+
+        /* Button styling */
+        .create-wallet-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button hover effect */
+        .create-wallet-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
+    <div class="welcome-container">
         <h1>Welcome to the Mini-App!</h1>
         <p>Please create your Solana wallet to proceed.</p>
-        <button onclick="createWallet()">Create Wallet</button>
+        <button onclick="createWallet()" class="create-wallet-btn">Create Wallet</button>
     </div>
+    
     <script>
         function createWallet() {
-            alert("Wallet created successfully!");
+            window.location.href = "/create_wallet";  // Redirect to Flask route for wallet creation
         }
     </script>
 </body>
