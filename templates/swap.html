@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jhon Bot - Swap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        body {
+            background: #000000;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #333;
+        }
+        .header-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .main-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        .tab-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+        .tab-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        .tab-button.active {
+            border-bottom: 2px solid white;
+        }
+        .swap-card {
+            background: rgba(31, 31, 31, 0.5);
+            border: 1px solid #333;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+        .swap-section {
+            margin-bottom: 1rem;
+        }
+        .swap-label {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        .swap-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1a1a1a;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+        }
+        .token-select {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .token-icon {
+            width: 24px;
+            height: 24px;
+            background: #4a90e2;
+            border-radius: 50%;
+        }
+        .swap-button {
+            background: #1a1a1a;
+            border: none;
+            color: white;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+        .navigation {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            border-top: 1px solid #333;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-title">Jhon Bot</div>
+        <button>⚙️</button>
+    </header>
+
+    <main class="main-content">
+        <div class="tab-bar">
+            <button class="tab-button active">Swap</button>
+            <button class="tab-button">Buy</button>
+        </div>
+
+        <div class="swap-card">
+            <div class="swap-section">
+                <div class="swap-label">
+                    <span>From</span>
+                    <span id="from-amount">0</span>
+                </div>
+                <div class="swap-input">
+                    <div class="token-select" id="from-token-select">
+                        <div class="token-icon"></div>
+                        <span>SOL</span>
+                    </div>
+                    <span id="from-usd">$0.00</span>
+                </div>
+            </div>
+
+            <div class="swap-section">
+                <div class="swap-label">
+                    <span>To</span>
+                    <span id="to-amount">0.00</span>
+                </div>
+                <div class="swap-input">
+                    <div class="token-select" id="to-token-select">
+                        <span>Select</span>
+                    </div>
+                    <span id="to-usd">$0.00</span>
+                </div>
+            </div>
+
+            <button class="swap-button" onclick="selectToken()">Select token</button>
+        </div>
+    </main>
+
+    <nav class="navigation">
+        <a href="/product" class="nav-item" id="product-button">
+            <span>🛍️</span>
+            <span>Product</span>
+        </a>
+        <a href="/market" class="nav-item" id="market-button">
+            <span>📊</span>
+            <span>Market</span>
+        </a>
+        <a href="/swap" class="nav-item" id="swap-button">
+            <span>🔄</span>
+            <span>Swap</span>
+        </a>
+        <a href="/wallet" class="nav-item" id="wallet-button">
+            <span>💼</span>
+            <span>Wallet</span>
+        </a>
+    </nav>
+
+    <script>
+        // Function to simulate token selection (you can replace this with dynamic data later)
+        function selectToken() {
+            // Example: you can open a modal or a dropdown to select tokens
+            document.getElementById('to-token-select').innerHTML = `<span>USDT</span>`;
+            document.getElementById('to-amount').innerHTML = "50.00";
+            document.getElementById('to-usd').innerHTML = "$50.00";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jhon Bot - Market Data</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        body {
+            background: linear-gradient(to bottom, #1a1a1a, #000000);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #333;
+        }
+        .header-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .main-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .price-info {
+            color: #888;
+            margin-bottom: 2rem;
+        }
+        .price-info span {
+            color: white;
+        }
+        .price-change {
+            color: #ff4444;
+        }
+        .dexscreener-container {
+            margin-top: 2rem;
+            width: 100%;
+            height: 500px;
+            background: #1a1a1a;
+            border-radius: 0.5rem;
+            border: 1px solid #333;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0.5rem;
+        }
+        .navigation {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            border-top: 1px solid #333;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-title">Jhon Bot</div>
+        <button>⋮</button>
+    </header>
+
+    <main class="main-content">
+        <h1 class="hero-title">Discover trending tokens in the market.</h1>
+        <p class="price-info">
+            The price of <span>Solana</span> is <span>$215</span> <span class="price-change">-1.10%</span>
+        </p>
+
+        <div class="dexscreener-container">
+            <iframe src="https://dexscreener.com/solana" title="Dexscreener Market Data"></iframe>
+        </div>
+    </main>
+
+    <nav class="navigation">
+        <a href="#" class="nav-item" id="product-button">
+            <span>🛍️</span>
+            <span>Product</span>
+        </a>
+        <a href="#" class="nav-item" id="market-button">
+            <span>📊</span>
+            <span>Market</span>
+        </a>
+        <a href="#" class="nav-item" id="swap-button">
+            <span>🔄</span>
+            <span>Swap</span>
+        </a>
+        <a href="#" class="nav-item" id="wallet-button">
+            <span>💼</span>
+            <span>Wallet</span>
+        </a>
+    </nav>
+
+    <script>
+        // Function to change the page location when navigation button is clicked
+        document.getElementById('product-button').addEventListener('click', function() {
+            window.location.href = '/product';  // Redirect to product page
+        });
+
+        document.getElementById('market-button').addEventListener('click', function() {
+            window.location.href = '/market';  // Redirect to market page
+        });
+
+        document.getElementById('swap-button').addEventListener('click', function() {
+            window.location.href = '/swap';  // Redirect to swap page
+        });
+
+        document.getElementById('wallet-button').addEventListener('click', function() {
+            window.location.href = '/wallet';  // Redirect to wallet page
+        });
+    </script>
+</body>
+</html>

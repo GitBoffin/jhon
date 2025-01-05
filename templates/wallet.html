@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jhon Bot - Wallet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        body {
+            background: #000000;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #333;
+        }
+        .header-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .main-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .wallet-info {
+            margin-bottom: 2rem;
+        }
+        .avatar {
+            width: 64px;
+            height: 64px;
+            background: #333;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+        }
+        .wallet-address {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .wallet-balance {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .last-updated {
+            color: #888;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .action-button {
+            background: none;
+            border: 1px solid #333;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tab-bar {
+            display: flex;
+            border-bottom: 1px solid #333;
+            margin-bottom: 1rem;
+        }
+        .tab-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        .tab-button.active {
+            border-bottom: 2px solid white;
+        }
+        .token-card {
+            background: rgba(31, 31, 31, 0.5);
+            border: 1px solid #333;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        .token-icon {
+            width: 48px;
+            height: 48px;
+            background: #333;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+        }
+        .token-message {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .token-description {
+            color: #888;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        .deposit-button {
+            background: white;
+            color: black;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .navigation {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            border-top: 1px solid #333;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-title">Jhon Bot</div>
+        <button>⚙️</button>
+    </header>
+
+    <main class="main-content">
+        <div class="wallet-info">
+            <div class="avatar"></div>
+            <div class="wallet-address">0xC..645</div>
+            <div class="wallet-balance">$0.00</div>
+            <div class="last-updated">Updated: 10 minutes ago</div>
+            <div class="action-buttons">
+                <button class="action-button">
+                    <span>➕</span>
+                    <span>Buy</span>
+                </button>
+                <button class="action-button">
+                    <span>↔️</span>
+                    <span>Swap</span>
+                </button>
+                <button class="action-button">
+                    <span>📋</span>
+                    <span>Copy</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="tab-bar">
+            <button class="tab-button active">Tokens</button>
+            <button class="tab-button">Activities</button>
+        </div>
+
+        <div class="token-card">
+            <div class="token-icon"></div>
+            <div class="token-message">There are no tokens for our supported chains</div>
+            <div class="token-description">Transfer from an existing wallet or buy with Flooz.</div>
+            <button class="deposit-button">Deposit funds</button>
+        </div>
+    </main>
+
+    <nav class="navigation">
+        <a href="product.html" class="nav-item" id="product-button">
+            <span>🛍️</span>
+            <span>Product</span>
+        </a>
+        <a href="market.html" class="nav-item" id="market-button">
+            <span>📊</span>
+            <span>Market</span>
+        </a>
+        <a href="swap.html" class="nav-item" id="swap-button">
+            <span>🔄</span>
+            <span>Swap</span>
+        </a>
+        <a href="wallet.html" class="nav-item" id="wallet-button">
+            <span>💼</span>
+            <span>Wallet</span>
+        </a>
+    </nav>
+</body>
+</html>
