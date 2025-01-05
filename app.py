@@ -1,15 +1,24 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, session
 
-# Initialize Flask app
 app = Flask(__name__)
+app.secret_key = os.urandom(24)  # Set a secret key for session management
 
-# Define the default route (home)
+# Define the default route (home) which will redirect to the welcome page
 @app.route('/')
 def home():
-    return render_template('index.html')
+    # If user has already seen the welcome page, redirect to market page
+    if session.get('welcome_visited', False):
+        return redirect(url_for('market'))  # Redirect to the market page
+    return redirect(url_for('welcome'))  # Otherwise, show welcome page
 
-# Define the route for the market page
+# Define the welcome page route
+@app.route('/welcome')
+def welcome():
+    # Show the welcome page only if the user hasn't seen it yet
+    return render_template('welcome.html')
+
+# Define the route for the market page (or other pages)
 @app.route('/market')
 def market():
     return render_template('market.html')
@@ -27,9 +36,14 @@ def swap():
 def wallet():
     return render_template('wallet.html')
 
-# Entry point for the Flask app
+# Function to simulate wallet creation
+@app.route('/create_wallet')
+def create_wallet():
+    # Mark the user as having visited the welcome page
+    session['welcome_visited'] = True
+    return redirect(url_for('market'))  # Redirect to the market page after wallet creation
+
+# Start the Flask app
 if __name__ == '__main__':
-    # Get the PORT from the environment or use default 5000
-    port = int(os.environ.get('PORT', 5000))
-    # Ensure the app is ready for production deployment
-    app.run(host='0.0.0.0', port=port)
+    port = int(os.environ.get("PORT", 5000))  # Use PORT from Heroku or default to 5000
+    app.run(host="0.0.0.0", port=port, debug=False)  # Disable debug mode in production
