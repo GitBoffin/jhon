@@ -7,10 +7,8 @@ app.secret_key = os.urandom(24)  # Set a secret key for session management
 # Default route (home) which redirects to the welcome page
 @app.route('/')
 def home():
-    # If user has already seen the welcome page, redirect to the market page
-    if session.get('welcome_visited', False):
-        return redirect(url_for('market'))  # Redirect to the market page
-    return redirect(url_for('welcome'))  # Otherwise, show welcome page
+    # Redirect to the welcome page as the first entry point
+    return redirect(url_for('welcome'))
 
 # Welcome page route
 @app.route('/welcome')
