@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template
 
-
+# Initialize Flask app
 app = Flask(__name__)
 
 # Define the default route (home)
@@ -27,7 +27,9 @@ def swap():
 def wallet():
     return render_template('wallet.html')
 
-# Start the Flask app
+# Entry point for the Flask app
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # Use PORT from Heroku or default to 5000
-    app.run(host="0.0.0.0", port=port, debug=False)  # Disable debug mode in production
+    # Get the PORT from the environment or use default 5000
+    port = int(os.environ.get('PORT', 5000))
+    # Ensure the app is ready for production deployment
+    app.run(host='0.0.0.0', port=port)
